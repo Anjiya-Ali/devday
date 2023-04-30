@@ -1,0 +1,72 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Systems Project Management
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/signup.css")
+    link(rel="stylesheet", href="/assets/css/neworg.css")
+    link(rel="stylesheet", href="/assets/css/home.css")
+  body
+    nav.mnb.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            i.ic.fa.fa-bars
+          div(style="padding: 15px 0;")
+            a#msbo(href="#")
+              i.ic.fa.fa-bars
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="/logout") Logout
+    .msb#msb
+      nav.navbar.navbar-default(role="navigation")
+        .navbar-header
+          .brand-wrapper
+            .brand-name-wrapper
+              a.navbar-brand(href="#") SYSTEMS
+        .side-menu-container
+            ul.nav.navbar-nav
+                li 
+                    h3.heading.projh #{projDetails.name}
+                li 
+                    a(href=`/project/${projDetails.id}`) Overview 
+                li 
+                    a(href=`/backlog/${projDetails.id}`) Backlog    
+                li 
+                    a(href=`/board/${projDetails.id}`) Board    
+                li 
+                    a(href=`/workitems/${projDetails.id}`) Workitems           
+    .mcw
+      .cv
+        h3.heading Welcome to the Project!
+        button.btn.newm.modal-sign Invite a Member
+
+        h2 Members
+
+        .container-fluid
+            each member in projDetails.members
+                .row.bg-info
+                    .col-md-12
+                    h4= member.name
+                      if role=="manager"
+                        a.memd(href=`/delete_member/${projDetails.id}/${member.id}`) Delete
+    .sign-in-modal
+        .inner--sign-in-modal
+            h2.neworgz Invite a Member
+            .content-info
+                .content-sign-in
+                    .wrap--content-sign-in
+                        form(action="/invite-member", method="post")
+                            .input-control
+                                input(type="text", name="name", value="", placeholder="Member Name")
+                            button(type="submit", name="button") Invite
+  
+
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="/assets/js/signup.js")
+    script(src="/assets/js/home.js")

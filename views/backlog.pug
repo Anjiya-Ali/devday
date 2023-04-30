@@ -1,0 +1,103 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Systems Project Management
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/signup.css")
+    link(rel="stylesheet", href="/assets/css/neworg.css")
+    link(rel="stylesheet", href="/assets/css/home.css")
+  body
+    nav.mnb.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            i.ic.fa.fa-bars
+          div(style="padding: 15px 0;")
+            a#msbo(href="#")
+              i.ic.fa.fa-bars
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="/logout") Logout
+    .msb#msb
+      nav.navbar.navbar-default(role="navigation")
+        .navbar-header
+          .brand-wrapper
+            .brand-name-wrapper
+              a.navbar-brand(href="#") SYSTEMS
+        .side-menu-container
+            ul.nav.navbar-nav
+                li 
+                    h3.heading.projh #{workDetails.name}
+                li 
+                    a(href=`/project/${workDetails.id}`) Overview 
+                li 
+                    a(href=`/backlog/${workDetails.id}`) Backlog    
+                li 
+                    a(href=`/board/${workDetails.id}`) Board    
+                li 
+                    a(href=`/workitems/${workDetails.id}`) Workitems           
+    .mcw
+      .cv
+        h3.heading Work Items
+        button.btn.newm.modal-sign New Work Item
+        button.btn.newm.neworg Update Item Status
+
+        table.table.list
+            thead
+                tr
+                th ID
+                th Work Item Type
+                th Title
+                th State
+                th
+            tbody
+                tr
+                each item in workDetails.items
+                    td= item.id
+                    td User Story
+                    td= item.name
+                    td= item.state
+                    
+    .sign-in-modal
+        .inner--sign-in-modal
+            h2.neworgz Add Work Item
+            .content-info#additem
+                .content-sign-in
+                    .wrap--content-sign-in
+                        form(action="/add-item", method="post")
+                            .input-control
+                                input(type="text", name="name", value="", placeholder="Task Name")
+                            .input-control
+                                select.form-control(name="nature",id="nature")
+                                    option(value="task") task
+                                    option(value="bug") bug
+                                    option(value="story") User Story
+                            .input-control
+                                input(type="text", name="sdate", value="", placeholder="Start Date")
+                            .input-control
+                                input(type="text", name="edate", value="", placeholder="End Date")
+                            .input-control
+                                input(type="text", name="assign", value="", placeholder="Assign To")
+                            button(type="submit", name="button") Add       
+    .new-org-modal
+        .inner--new-org-modal
+            h2.neworgz Update Item Status
+            .content-info.orginfo
+                .content-sign-in
+                    .wrap--content-sign-in
+                        form(action="/create-organization", method="post")
+                            .input-control
+                                input(type="text", name="name", value="", placeholder="Task Id")
+                            .input-control
+                                input(type="text", name="status", value="", placeholder="Status")
+                            button(type="submit", name="button") Update
+  
+
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="/assets/js/signup.js")
+    script(src="/assets/js/home.js")

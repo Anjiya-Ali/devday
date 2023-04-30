@@ -1,0 +1,95 @@
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title Systems Project Management
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+    link(rel="stylesheet", href="/assets/css/signup.css")
+    link(rel="stylesheet", href="/assets/css/neworg.css")
+    link(rel="stylesheet", href="/assets/css/home.css")
+  body
+    nav.mnb.navbar.navbar-default.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            i.ic.fa.fa-bars
+          div(style="padding: 15px 0;")
+            a#msbo(href="#")
+              i.ic.fa.fa-bars
+        #navbar.navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href="/logout") Logout
+    .msb#msb
+      nav.navbar.navbar-default(role="navigation")
+        .navbar-header
+          .brand-wrapper
+            .brand-name-wrapper
+              a.navbar-brand(href="#") SYSTEMS
+        .side-menu-container
+            ul.nav.navbar-nav
+                each org in orgDetails.organizations.data
+                    li
+                        a(href=`/organization/${org.id}`) #{org.name}
+                li 
+                    button.btn.neworg New Organization        
+    .mcw
+      .cv
+        h3.heading= orgDetails.name
+        button.btn.new.modal-sign Create new project
+        button.btn.join.modal-sign2 Join Project
+        nav.navbar.tabs
+            .container-fluid
+                .navbar-header
+                button.navbar-toggle.collapsed(data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+                    a#msbo(href="#")
+                ul.nav.navbar-nav.navbar-left
+                    li
+                        a.myanchor(href=`/organization/${orgDetails.id}/projects`) Projects
+                    li
+                        a.myanchor(href=`/organization/${orgDetails.id}/workitems`) My work items
+        .container-fluid
+            each project in orgDetails.projects
+                .row.bg-info
+                    .col-md-12
+                    a.projname(href=`/project/${project.id}`) #{project.name}
+    .sign-in-modal
+        .inner--sign-in-modal
+            .val-info
+                span.overlay.sign-in-side
+                .tab.tab-sign-in.active Create
+                .tab.tab-sign-up Join
+            .content-info
+                .content-sign-in
+                    .wrap--content-sign-in
+                        form(action="/create-project", method="post")
+                            .input-control
+                                input(type="text", name="name", value="", placeholder="Project Name")
+                            button(type="submit", name="button") Create
+                .content-sign-up
+                    .wrap--content-sign-up
+                        form(action="/join-project", method="post")
+                            .input-control
+                                input(type="text", name="key", value="", placeholder="Project Key")
+                            button(type="submit", name="button") Join
+    .new-org-modal
+        .inner--new-org-modal
+            h2.neworgz Create New Organization
+            .content-info.orginfo
+                .content-sign-in
+                    .wrap--content-sign-in
+                        form(action="/create-organization", method="post")
+                            .input-control
+                                input(type="text", name="name", value="", placeholder="Organization Name")
+                            .input-control
+                                input(type="text", name="country", value="", placeholder="Country")
+                            button(type="submit", name="button") Create
+      
+  
+
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")
+    script(src="/assets/js/signup.js")
+    script(src="/assets/js/home.js")
