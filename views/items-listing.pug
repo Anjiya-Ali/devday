@@ -38,7 +38,8 @@ html(lang="en")
                 li 
                     a(href=`/board/${workDetails.id}`) Board    
                 li 
-                    a(href=`/workitems/${workDetails.id}`) Workitems           
+                    a(href=`/
+                    ms/${workDetails.id}`) Workitems           
     .mcw
       .cv
         h3.heading Work Items
@@ -54,8 +55,8 @@ html(lang="en")
                 th Start Date
                 th
             tbody
-                tr
                 each item in workDetails.items
+                  tr
                     td= item.id
                     td= item.name
                     td= item.assign_to
@@ -73,6 +74,7 @@ html(lang="en")
                             form(action="/add-item", method="post")
                                 .input-control
                                     input(type="text", name="name", value="", placeholder="Task Name")
+                                    input(type="hidden", name="project_id", value=`${projID}`, placeholder="Task Name")
                                 .input-control
                                     select.form-control(name="nature",id="nature")
                                         option(value="task") task

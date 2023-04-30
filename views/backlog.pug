@@ -54,12 +54,12 @@ html(lang="en")
                 th State
                 th
             tbody
-                tr
                 each item in workDetails.items
-                    td= item.id
-                    td User Story
-                    td= item.name
-                    td= item.state
+                    tr
+                      td= item.id
+                      td User Story
+                      td= item.name
+                      td= item.state
                     
     .sign-in-modal
         .inner--sign-in-modal
@@ -88,9 +88,9 @@ html(lang="en")
             .content-info.orginfo
                 .content-sign-in
                     .wrap--content-sign-in
-                        form(action="/create-organization", method="post")
+                        form(action="/updatingStatus", method="post")
                             .input-control
-                                input(type="text", name="name", value="", placeholder="Task Id")
+                                input(type="text", name="task", value="", placeholder="Task Id")
                             .input-control
                                 input(type="text", name="status", value="", placeholder="Status")
                             button(type="submit", name="button") Update

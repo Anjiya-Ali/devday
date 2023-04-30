@@ -5,6 +5,12 @@ html(lang="en")
     link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
     link(rel="stylesheet", href="assets/css/home.css")
+    script.
+      // Define a function to show the error popup
+      function showErrorPopup(errorMsg) {
+        // Display the error message in the popup
+        alert(errorMsg);
+      }
   body
     nav.mnb.navbar.navbar-default.navbar-fixed-top
       .container-fluid
@@ -33,6 +39,10 @@ html(lang="en")
     .mcw
       .cv
         h2 Welcome Back!
+    if (errorMsg)
+      // Call the function to show the error popup
+      script.
+        showErrorPopup("#{errorMsg}")
     script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js")
     script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js")

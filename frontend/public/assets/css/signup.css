@@ -443,6 +443,10 @@ button, button:hover, button:active, button:visited, button:focus {
     margin-left: 2px;
   }
   
+  h3{
+    color: red;
+  }
+
   @media (min-width: 320px) and (max-width: 600px) {
     .sign-in-modal .inner--sign-in-modal {
       min-width: auto;

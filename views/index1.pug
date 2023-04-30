@@ -1,0 +1,105 @@
+doctype html
+head
+  title Systems Project Management
+  link(href='assets/css/bootstrap.css' rel='stylesheet')
+  link(href='assets/css/signup.css' rel='stylesheet')
+.sign-in-modal
+  .inner--sign-in-modal
+    .val-info
+      span.overlay.sign-in-side
+      .tab.tab-sign-in.active
+        | Login
+      .tab.tab-sign-up
+        | Register
+    .content-info
+      .content-sign-in
+        .wrap--content-sign-in
+          .greetings
+            | Welcome back!
+          h3=message1
+          form(action='/login' method='post')
+            .input-control
+              input(type='text' name='email' value='' placeholder='Email')
+            .input-control
+              input(type='password' name='password' value='' placeholder='Password')
+            button(type='submit' name='button')  Login 
+      .content-sign-up
+        .wrap--content-sign-up
+          .greetings
+            | Welcome Mr(s)
+            h3=message2  
+            span.greetings-name
+            span.greetings-surname
+          form(action='/signup' method='post')
+            .input-control
+              input.input-firstname(type='text' name='fname' value='' placeholder='First Name')
+            .input-control
+              input.input-lastname(type='text' name='lname' value='' placeholder='Last Name')
+            .input-control
+              input(type='text' name='email' value='' placeholder='Email')
+            .input-control
+              input(type='password' name='password' value='' placeholder='Password')
+            button(type='submit' name='button')  Register 
+main#top.main
+  nav.navbar.navbar-expand-lg.navbar-light.fixed-top.py-4.d-block(data-navbar-on-scroll='data-navbar-on-scroll')
+    .container
+      a.navbar-brand(href='/')
+        h2(style='color:white') SYSTEMS
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+        span.navbar-toggler-icon  
+      #navbarSupportedContent.collapse.navbar-collapse.border-top.border-lg-0.mt-4.mt-lg-0
+        ul.navbar-nav.ms-auto.pt-2.pt-lg-0.font-base
+        form.ps-lg-5
+          a.modal-sign.cd-signin.btn.btn-light.order-1.order-lg-0(href='#!')
+            | login
+            svg.bi.bi-person-fill(xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' viewbox='0 0 16 16')
+              path(d='M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z')
+  section#home
+    .bg-holder(style='background-image:url(assets/img/gallery/hero.png);background-position:center;background-size:cover;')
+    .container
+      .row.align-items-center.min-vh-50.min-vh-sm-75
+        .col-md-5.col-lg-6.order-0.order-md-1
+          img.w-100(src='assets/img/illustrations/hero-header.png' alt='...')
+        .col-md-7.col-lg-6.text-md-start.text-center
+          h1.text-light.fs-md-5.fs-lg-6 Project Management Easy and Secure
+          p.text-light Full control of all your projects and employees 
+  section.pt-8
+    .container
+      .row
+        .col-lg-6.col-xxl-5.text-center.mx-auto
+          h2 What Features It Includes
+      .row.align-items-center.mt-5
+        .col-md-5.col-lg-6.order-md-1.order-0
+          img.w-100(src='assets/img/gallery/join-us.png' alt='')
+        .col-md-7.col-lg-6.pe-lg-4.pe-xl-7
+          .d-flex.align-items-start
+            img.me-4(src='assets/img/icons/give-a-care.png' alt='' width='30')
+            .flex-1
+              h5 WE GIVE A ORGANIZED VIEW 
+              br
+          .d-flex.align-items-start
+            img.me-4(src='assets/img/icons/tweak-as-you.png' alt='' width='30')
+            .flex-1
+              h5 MANAGE AS YOU WISH
+              br
+          .d-flex.align-items-start
+            img.me-4(src='assets/img/icons/security.png' width='30' alt='...')
+            .flex-1
+              h5 SECURITY AT ITS BEST
+              br
+  section#help.py-0.py-xxl-6
+    .bg-holder(style='background-image:url(assets/img/gallery/footer-bg.png);background-position:center;background-size:cover;')
+    .container
+      .row.flex-center.pb-3
+        .col-md-6.order-0
+          p.text-200.text-center.text-md-start All rights Reserved &copy; Systems Limited, 2023
+        .col-md-6.order-1
+          p.text-200.text-center.text-md-end
+            | Made with&nbsp;
+            svg.bi.bi-suit-heart-fill(xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='#A8B7FF' viewbox='0 0 16 16')
+              path(d='M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z')
+            | &nbsp;by&nbsp;
+            a.text-200.fw-bold(href='https://themewagon.com/' target='_blank') Avanxa 
+link(href='https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap' rel='stylesheet')
+script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js')
+script(type='text/javascript' src='assets/js/signup.js')

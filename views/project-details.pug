@@ -62,6 +62,7 @@ html(lang="en")
                         form(action="/invite-member", method="post")
                             .input-control
                                 input(type="text", name="name", value="", placeholder="Member Name")
+                                input(type="hidden", name="id", value=`${projDetails.id}`)
                             button(type="submit", name="button") Invite
   
 

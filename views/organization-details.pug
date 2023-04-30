@@ -66,12 +66,14 @@ html(lang="en")
                         form(action="/create-project", method="post")
                             .input-control
                                 input(type="text", name="name", value="", placeholder="Project Name")
+                                input(type="hidden" name="idd" value=`${orgDetails.id}`)
                             button(type="submit", name="button") Create
                 .content-sign-up
                     .wrap--content-sign-up
                         form(action="/join-project", method="post")
                             .input-control
-                                input(type="text", name="key", value="", placeholder="Project Key")
+                                input(type="text", name="keyy", value="", placeholder="Project Key")
+                                input(type="hidden" name="idd" value=`${orgDetails.id}`)
                             button(type="submit", name="button") Join
     .new-org-modal
         .inner--new-org-modal
